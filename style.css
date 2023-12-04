@@ -1,0 +1,96 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: #000080; 
+    font-family: 'Times New Roman', serif; 
+    color: #ffffff; 
+    padding: 10px; 
+    text-align: center;
+}
+
+#nav {
+    padding: 10px;
+    background: #000065;
+}
+
+#nav a {
+    font-family: 'Arial', sans-serif;
+    color: #ffffff;
+    font-size: 1.2em; 
+    padding: 10px;
+    
+}
+
+#nav a:hover {
+    background-color: #ffffff;
+    color: #000000; /* Improved color contrast */
+    padding: 10px;
+    
+}
+
+#centrebox {
+    width: 100%; /* Responsive width */
+    max-width: 80%;
+    height: 1000px;
+    background-color: #ecf0f1;
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+#centreboxceiling {
+    background-color: #000080;
+    color: #ffffff;
+    padding: 10px; /* Use consistent padding units */
+}
+
+
+.header-container {
+    background-color: #000080;
+    color: #ffffff;
+}
+
+.logo-link {
+    color: white;
+    text-decoration: none;
+}
+
+.logo-text {
+    font-size: 50px;
+}
+
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-container {
+    width: 300px;
+    border: solid 2px #000080;
+}
+
+.login-header {
+    background-color: #000080;
+    color: #ffffff;
+    padding: 3px;
+}
+
+.login-content {
+    margin: 30px;
+}
+
+footer {
+    text-align: center;
+    background-color: #000080;
+    color: #ffffff;
+    padding: 10px;
+}
+
+/* Add more styling as needed for your specific content */
