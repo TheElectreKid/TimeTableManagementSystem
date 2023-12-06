@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Dec 03, 2023 at 02:40 PM
+-- Generation Time: Dec 06, 2023 at 03:08 PM
 -- Server version: 8.0.31
 -- PHP Version: 8.0.26
 
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `class` (
   KEY `teacher_id` (`teacher_id`),
   KEY `subject_id` (`subject_id`),
   KEY `time_id` (`time_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `class`
@@ -49,7 +49,8 @@ INSERT INTO `class` (`class_id`, `classname`, `teacher_id`, `time_id`, `subject_
 (2, 'Economics', 2, 2, 2),
 (3, 'Creative Writing', 3, 3, 3),
 (4, 'World History', 1, 4, 4),
-(5, 'Literature', 2, 5, 5);
+(5, 'Literature', 4, 5, 5),
+(6, 'Sub 1', 4, 6, 6);
 
 -- --------------------------------------------------------
 
@@ -63,7 +64,7 @@ CREATE TABLE IF NOT EXISTS `datetimes` (
   `classtime` time DEFAULT NULL,
   `endtime` time DEFAULT NULL,
   PRIMARY KEY (`time_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `datetimes`
@@ -74,7 +75,8 @@ INSERT INTO `datetimes` (`time_id`, `classtime`, `endtime`) VALUES
 (2, '09:30:00', '10:30:00'),
 (3, '13:30:00', '14:30:00'),
 (4, '15:30:00', '16:30:00'),
-(5, '18:30:00', '19:30:00');
+(5, '18:30:00', '19:30:00'),
+(6, '19:30:00', '20:30:00');
 
 -- --------------------------------------------------------
 
@@ -113,7 +115,7 @@ CREATE TABLE IF NOT EXISTS `subjects` (
   `subject_code` varchar(255) NOT NULL,
   `subject_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`subject_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `subjects`
@@ -124,7 +126,8 @@ INSERT INTO `subjects` (`subject_id`, `subject_code`, `subject_name`) VALUES
 (2, 'ECO201', 'Principles of Economics'),
 (3, 'ENG301', 'Creative Writing Workshop'),
 (4, 'HIS102', 'World History'),
-(5, 'LIT202', 'Comparative Literature');
+(5, 'LIT202', 'Comparative Literature'),
+(6, 'Sub Code', 'Sub 1');
 
 -- --------------------------------------------------------
 
@@ -151,7 +154,8 @@ CREATE TABLE IF NOT EXISTS `teachers` (
 INSERT INTO `teachers` (`teacher_id`, `firstname`, `lastname`, `gender`, `user_id`, `ttable_id`) VALUES
 (1, 'Richard', 'Parker', 'Male', 3, 0),
 (2, 'Albert', 'Wesker', 'Male', 4, 0),
-(3, 'Jonathan', 'Joestar', 'Male', 5, NULL);
+(3, 'Jonathan', 'Joestar', 'Male', 5, NULL),
+(4, 'Joe', 'Mama', 'Male', 6, 2);
 
 -- --------------------------------------------------------
 
@@ -162,7 +166,7 @@ INSERT INTO `teachers` (`teacher_id`, `firstname`, `lastname`, `gender`, `user_i
 DROP TABLE IF EXISTS `timetableid`;
 CREATE TABLE IF NOT EXISTS `timetableid` (
   `ttable_id` int NOT NULL AUTO_INCREMENT,
-  `tablename` int NOT NULL,
+  `tablename` varchar(255) NOT NULL,
   PRIMARY KEY (`ttable_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -171,7 +175,8 @@ CREATE TABLE IF NOT EXISTS `timetableid` (
 --
 
 INSERT INTO `timetableid` (`ttable_id`, `tablename`) VALUES
-(1, 0);
+(2, 'Timetable 2'),
+(1, 'Timetable 1');
 
 -- --------------------------------------------------------
 
@@ -197,6 +202,7 @@ INSERT INTO `usercredentials` (`user_id`, `user_name`, `pwd`, `user_type`) VALUE
 (3, 'Richard69420', 'july92003', 'faculty'),
 (2, 'John', 'april1945', 'student'),
 (4, 'Albert5610', '123456789', 'faculty'),
+(6, 'Joe', 'july92003', 'faculty'),
 (5, 'Jonathan', '1234567890', 'faculty');
 COMMIT;
 

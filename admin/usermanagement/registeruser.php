@@ -33,10 +33,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $tableName = "students";
             $IDColumn = "stud_id";
             $missingID = findMissingID($db, $tableName, $IDColumn);
-
             $sql3 = "INSERT INTO students (stud_id, firstname, lastname, gender, user_id, ttable_id)
             VALUES ($missingID, '$firstname', '$lastname', '$gender', '$userid', NULL)";
             $result = $db->query($sql3);
+            
             if (!$result) {
                 echo "Error: " . $db->error;
             }
@@ -55,14 +55,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             VALUES ($userid, '$username', '$password', '$usertype')";
             $result = $db->query($sql2);
 
-            //INSERT INTO STUDENT TABLE
+            //INSERT INTO TEACHER TABLE
             $tableName = "teachers";
             $IDColumn = "teacher_id";
             $missingID = findMissingID($db, $tableName, $IDColumn);
-
             $sql3 = "INSERT INTO teachers (teacher_id, firstname, lastname, gender, user_id, ttable_id)
             VALUES ($missingID, '$firstname', '$lastname', '$gender', '$userid', NULL)";
             $result = $db->query($sql3);
+
             if (!$result) {
                 echo "Error: " . $db->error;
             }

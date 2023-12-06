@@ -6,8 +6,8 @@ if (!isset($_SESSION['usertype']) || $_SESSION['usertype'] !== 'sysadmin') {
     exit();
 }
 
-include("../dbconfig.php"); // SQL Connection
-
+// SQL Connection
+include("../dbconfig.php"); 
 function findMissingID($db, $tableName, $IDColumn) {
     $sql = "SELECT $IDColumn FROM $tableName ORDER BY $IDColumn ASC";
     $result = $db->query($sql);
@@ -63,6 +63,7 @@ if ($result4->num_rows > 0) {
         $classtimes[] = $row4;
     }
 }
+//
 
 // Handle form submission to create a new class
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['create'])) {
@@ -132,6 +133,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['create'])) {
                         Teacher:
                         <select name="teacher_id" required>
                             <?php
+                            //Display for the interface
                             foreach ($teachers as $teacher) {
                                 echo "<option value='" . $teacher['teacher_id'] . "'>" . $teacher['firstname'] . "</option>";
                             }

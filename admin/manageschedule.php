@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $IDColumn = "time_id";
         $missingID = findMissingID($db, $tableName, $IDColumn);
         
-        // Make sure to validate the format of classtime and endtime before inserting
+        // Insertion of time data into the datetimes table
         $sql = "INSERT INTO datetimes (time_id, classtime, endtime) VALUES ($missingID, '$classtime', '$endtime')";
         $result = $db->query($sql);
 
@@ -44,6 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
+//Delete schedule
 if (isset($_GET["delete_schedule"])) {
     $timeIdToDelete = $_GET["delete_schedule"];
     // Construct SQL Query to delete the schedule

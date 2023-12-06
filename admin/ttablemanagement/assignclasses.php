@@ -28,9 +28,9 @@ if ($result->num_rows > 0) {
     }
 }
 
-// Change this condition to check for the correct parameter
+//Receives Class to Add from form then sends it to addclass.php along with the timetable id for timetable insertion
 if (isset($_GET["add_class"])) {
-    $classIdToAdd = $_GET["add_class"];  // Change to "add_class" instead of "edit_class"
+    $classIdToAdd = $_GET["add_class"]; 
     $sql2 = "SELECT * FROM class WHERE class_id = $classIdToAdd";
     $result2 = $db->query($sql2);
     

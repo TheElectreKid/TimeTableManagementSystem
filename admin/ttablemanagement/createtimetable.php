@@ -11,7 +11,7 @@ include("../../dbconfig.php"); // Connects to the MySQL Database
 include("../globalsorter.php"); // Sorter for consistent deletion and insertion to the database
 
 
-// Step 1: Check timetableid for the missing id
+// Step 1: Check timetableid for the missing id for consistent id management
 $tablename = 'timetableid';
 $IDColumn = 'ttable_id';
 $missingTTableID = findMissingID($db, $tablename, $IDColumn);

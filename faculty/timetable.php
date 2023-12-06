@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 // Check if the user is logged in and has the correct usertype (faculty)
 if (!isset($_SESSION['usertype']) || $_SESSION['usertype'] !== 'faculty') {
     header('Location: ../login.php');

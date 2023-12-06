@@ -7,6 +7,7 @@ if (!isset($_SESSION['usertype']) || $_SESSION['usertype'] !== 'sysadmin') {
 }
 include("../../dbconfig.php"); // Connects to the MySQL Database
 
+//Receive data from user credentials for display
 $sql = "SELECT * FROM usercredentials";
 $result = $db->query($sql);
 $userlist = [];

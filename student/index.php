@@ -24,11 +24,12 @@ if (!isset($_SESSION['usertype']) || $_SESSION['usertype'] !== 'student') {
 <body>
 
 <script>
+//Javascript function for logout confirmation
 function confirmLogout() {
     var confirmLogout = confirm("Are you sure you want to logout?");
     if (confirmLogout) {
         // If the user confirms, proceed with the logout
-        window.location.href = "../logout.php"; // Add a query parameter to indicate the logout action
+        window.location.href = "../logout.php"; // Logout Action
     }
 }
 </script>

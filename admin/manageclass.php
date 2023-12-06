@@ -8,7 +8,7 @@ if (!isset($_SESSION['usertype']) || $_SESSION['usertype'] !== 'sysadmin') {
 
 include("../dbconfig.php");
 
-// Fetch classes from the database for display
+// Fetch classes, and from other tables from the database for display using LEFT JOIN
 $sql = "SELECT c.*, t.firstname AS teacher_name, d.classtime AS class_time, d.endtime AS end_time, s.subject_name
         FROM class AS c
         LEFT JOIN teachers AS t ON c.teacher_id = t.teacher_id
@@ -23,6 +23,7 @@ if ($result->num_rows > 0) {
     }
 }
 
+//Receive the class_id to be edited from the URL
 if (isset($_GET["edit_class"])) {
     $classIdToEdit = $_GET["edit_class"];
     $sql3 = "SELECT * FROM class WHERE class_id = $classIdToEdit";
@@ -75,6 +76,7 @@ if (isset($_GET["edit_class"])) {
 
             <tr>
                 <?php
+                //Display
                 foreach ($classes as $class) {
                     echo "<tr>";
                     echo "<td height='25' width='100' align='center' style='border: solid 1px #000080;'>{$class['class_id']}</td>";

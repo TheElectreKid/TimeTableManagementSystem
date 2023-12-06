@@ -1,13 +1,16 @@
 <?php
-    session_start();
-    // Check if the user is logged in and has the correct usertype (admin)
-    if (!isset($_SESSION['usertype']) || $_SESSION['usertype'] !== 'sysadmin') {
+session_start();
+
+// Check if the user is logged in and has the correct usertype (admin)
+if (!isset($_SESSION['usertype']) || $_SESSION['usertype'] !== 'sysadmin') {
         header('Location: ../login.php');
         exit();
-    }
-    include ("../dbconfig.php");
-// Fetch student list from the database for display
+}
 
+include ("../dbconfig.php");
+
+
+// Fetch student list from the database for display
 $sql = "SELECT * FROM students";
 $result = $db->query($sql);
 $students = [];
@@ -17,6 +20,7 @@ if ($result->num_rows > 0) {
     }
 }
 
+//Retrieves stud_id and puts it into the URL 
 if (isset($_GET["edit_student"])) {
     $studIdToEdit = $_GET["edit_student"];
     $sql = "SELECT * FROM students WHERE stud_id = $studIdToEdit";

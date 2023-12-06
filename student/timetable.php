@@ -9,13 +9,16 @@ if (!isset($_SESSION['usertype']) || $_SESSION['usertype'] !== 'student') {
 
 include("../dbconfig.php");
 
-// Retrieve student's user id
+// Retrieve student's user id stored in session
 $sql = "SELECT ttable_id FROM students WHERE user_id = {$_SESSION['user_id']}";
 $result = $db->query($sql);
 $row = $result->fetch_assoc();
 $tableid = $row['ttable_id'];
 
-// Retrieve timetable information
+// Retrieve timetable information from user's table identified using by the user_id
+// Selects timetable data from group2dbttables database and joins it with two tables from the group2db database
+// Dev Comment: This was a headache to figure out in code, but was worth it... 
+
 $sql2 = "SELECT timetable.*, teachername.firstname, time1.*
          FROM group2dbttables.table_$tableid timetable
          JOIN group2db.teachers teachername ON timetable.teacher_id = teachername.teacher_id
@@ -62,6 +65,7 @@ $result2 = $db->query($sql2);
 
             <!-- Use a while loop to iterate through rows -->
             <?php
+            //Display
             while ($timetable = $result2->fetch_assoc()) {
                 echo "<tr>";
                 echo "<td height='25' width='100' align='center' style='border: solid 1px #000080;'>{$timetable['class_id']}</td>";

@@ -27,8 +27,8 @@ function findMissingID($db, $tableName, $IDColumn) {
     return $IDmissing;
 }
 
-// Usage example
-// Assuming you have a database connection in $db
+//Usage example
+//Assuming you have a database connection in $db
 //$tableName = "datetimes";
 //$IDColumn = "time_id";
 //$missingID = findMissingID($db, $tableName, $IDColumn);

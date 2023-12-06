@@ -5,8 +5,6 @@ if (!isset($_SESSION['usertype']) || $_SESSION['usertype'] !== 'faculty') {
     header('Location: ../login.php');
     exit();
 }
-
-
 ?>
 
 <!DOCTYPE html>

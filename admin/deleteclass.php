@@ -11,7 +11,7 @@ include("../dbconfig.php"); // SQL Connection
 if (isset($_POST['class_id'])) {
     $class_id = $_POST['class_id'];
     
-    // Check if a confirmation form has been submitted
+    // Check if a confirmation form has been submitted, then delete
     if (isset($_POST['confirm_delete'])) {
         // Delete the class from the database
         $delete_sql = "DELETE FROM class WHERE class_id = $class_id";
@@ -19,7 +19,7 @@ if (isset($_POST['class_id'])) {
             header("Location: manageclass.php"); // Redirect to the class management page after deletion
             exit();
         } else {
-            echo "Error deleting class: " . $db->error;
+            echo "Error deleting class: " . $db->error; //Error handling
             exit();
         }
     }

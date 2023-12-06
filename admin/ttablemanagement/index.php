@@ -52,7 +52,7 @@ if ($result->num_rows > 0) {
             <thead>
                 <tr>
                     <th>Timetable ID</th>
-                    <!-- Add other table headers as needed -->
+                    <th>Table Name </th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -60,6 +60,7 @@ if ($result->num_rows > 0) {
                 <?php foreach ($timetables as $timetable) : ?>
                     <tr>
                         <td height='25' width='100' align='center' style='border: solid 1px #000080;'><?php echo $timetable['ttable_id']; ?></td>
+                        <td height='25' width='100' align='center' style='border: solid 1px #000080;'><?php echo $timetable['tablename']; ?></td>
                         <!-- Add other table data as needed -->
                         <td style='border: solid 1px #000080;' width='200' align='center'>
                             <a href="deletetimetable.php?ttable_id=<?php echo $timetable['ttable_id']; ?>"

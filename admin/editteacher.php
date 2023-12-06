@@ -11,7 +11,7 @@ include("../dbconfig.php"); // SQL Connection
 if (isset($_GET['teacher_id'])) {
     $teacher_id = $_GET['teacher_id'];
 
-    // Fetch teacher details
+    // Fetch teacher details and timetable details
     $sql = "SELECT * FROM teachers WHERE teacher_id = $teacher_id";
     $result = $db->query($sql);
     $sql2 = "SELECT * FROM timetableid";
@@ -23,8 +23,6 @@ if (isset($_GET['teacher_id'])) {
         $firstname = $row['firstname'];
         $lastname = $row['lastname'];
         $gender = $row['gender'];
-
-        // Fetch timetable details
         $ttableid = $row['ttable_id'];
     } else {
         echo "Error fetching teacher details or timetable details.";

@@ -114,6 +114,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         Teacher:
                         <select name="teacher_id">
                             <?php
+                            //Display for the interface
                             foreach ($teachers as $teacher) {
                                 $selected = ($teacher['teacher_id'] == $teacherid) ? 'selected' : '';
                                 echo "<option value='" . $teacher['teacher_id'] . "' $selected>" . $teacher['firstname'] . "</option>";

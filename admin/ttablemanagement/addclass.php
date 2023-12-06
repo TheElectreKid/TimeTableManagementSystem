@@ -11,8 +11,8 @@ if (!isset($_SESSION['usertype']) || $_SESSION['usertype'] !== 'sysadmin') {
 include("../../dbconfig.php"); // Connects to the MySQL Database
 include("../globalsorter.php"); // Sorter for consistent deletion and insertion to the database
 
-$classIdToAdd = $_GET['class_id'];
-$TimetableIdToInsert = $_GET['ttable_id'];
+$classIdToAdd = $_GET['class_id']; // Identifies the Class
+$TimetableIdToInsert = $_GET['ttable_id']; // Identifies Timetable to insert to
 
 // Select the row from class where the class_id=$classIdToAdd
 $sql = "SELECT * FROM class WHERE class_id = $classIdToAdd";

@@ -40,6 +40,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
     }
 }
+//
+
 
 // Delete a subject
 if (isset($_GET["delete_subject"])) {
@@ -49,6 +51,7 @@ if (isset($_GET["delete_subject"])) {
     $db->query($sql);
     header("Location: {$_SERVER['PHP_SELF']}");
 }
+//
 
 ?>
 
@@ -98,6 +101,7 @@ if (isset($_GET["delete_subject"])) {
             </tr>
             <tr>
             <?php
+                //Display
                 foreach ($subjects as $subject) {
                     echo "<tr>";
                     echo "<td height = '25' width = '100' align = 'center' style = 'border: solid 1px #000080;'>{$subject['subject_id']}</td>";
