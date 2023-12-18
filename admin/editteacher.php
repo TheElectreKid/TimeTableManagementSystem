@@ -59,64 +59,55 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Teacher</title>
-    <style>
-        html {
-            font-family: Arial, sans-serif;
-        }
-    </style>
+    <link rel="stylesheet" href="../css/admin.css">
 </head>
-
 <body>
-    <header>
-        <div style="background-color:#000080; color:#FFFFFF;">
-            <p align='center' style="font-size:50px;"></p>
-        </div>
-    </header>
 
-    <div align="center">
-        <!-- Stuff inside the box header -->
-        <div style="width:1000px; height:500px; border: solid 2px #000080;" align="left">
+<header>
+    <div style="background-color:#000080; color:#FFFFFF;">
+        <p align='center' style="font-size:50px;"></p>
+    </div>
+</header>
 
-            <div style="background-color:#000080; color:#FFFFFF; padding:3px;">
-                <p style="font-size:x-large; margin: 10px;">Edit Teacher</p>
-                <a href="manageteachers.php" align='left'><button>Back</button></a>
-            </div>
-
-            <!-- Form for editing teacher details -->
-            <form method="POST">
-                <table width='999' align='center'>
-                    <tr>
-                        <td>First Name: <input type="text" name="firstname" value="<?php echo $firstname; ?>"></td>
-                        <td>Last Name: <input type="text" name="lastname" value="<?php echo $lastname; ?>"></td>
-                        <td>Gender: <input type="text" name="gender" value="<?php echo $gender; ?>"></td>
-                    </tr>
-                    <tr>
-                        <td>User ID: <?php echo $userid; ?></td>
-                        <td>Teacher ID: <?php echo $teacher_id; ?></td>
-                        <td>Timetable ID:
-                            <select name="timetable_id">
-                                <?php
-                                // Display timetable options
-                                while ($row2 = $result2->fetch_assoc()) {
-                                    echo "<option value='{$row2['ttable_id']}'";
-                                    if ($row2['ttable_id'] == $ttableid) {
-                                        echo " selected";
-                                    }
-                                    echo ">{$row2['ttable_id']}</option>";
-                                    echo "<option value='0'>0</option>";
-                                }
-                                ?>
-                            </select>
-                        </td>
-                    </tr>
-                </table>
-                <div style="background-color:#000080; color:#FFFFFF; padding:3px;">
-                    <button type="submit">Apply</button>
-                </div>
-            </form>
-        </div>
+<div align="center" class="nav">
+    <div class="navbar">
+        <p style="font-size:x-large; margin: 10px;">Edit Teacher:</p>
+        <a href="manageteachers.php" align='left'>Back</a>
     </div>
 
-</body>
+        <!-- Form for editing teacher details -->
+    <form method="POST">
+        <table width='999' align='center'>
+            <tr>
+                <td>First Name: <input type="text" name="firstname" value="<?php echo $firstname; ?>"></td>
+                <td>Last Name: <input type="text" name="lastname" value="<?php echo $lastname; ?>"></td>
+                <td>Gender: <input type="text" name="gender" value="<?php echo $gender; ?>"></td>
+            </tr>
+            <tr>
+                <td>User ID: <?php echo $userid; ?></td>
+                <td>Teacher ID: <?php echo $teacher_id; ?></td>
+                <td>Timetable ID:
+                    <select name="timetable_id">
+                        <?php
+                        // Display timetable options
+                        while ($row2 = $result2->fetch_assoc()) {
+                            echo "<option value='{$row2['ttable_id']}'";
+                            if ($row2['ttable_id'] == $ttableid) {
+                                echo " selected";
+                            }
+                            echo ">{$row2['ttable_id']}</option>";
+                            echo "<option value='0'>0</option>";
+                        }
+                        ?>
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <div style="background-color:#000080; color:#FFFFFF; padding:3px;">
+            <button type="submit">Apply</button>
+        </div>
+    </form>
+</div>
 
+</body>
 </html>

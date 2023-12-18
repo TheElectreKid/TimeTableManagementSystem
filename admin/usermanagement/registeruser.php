@@ -79,98 +79,92 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration</title>
-    <style>
-        html {
-            font-family: Arial, sans-serif;
-        }
-    </style>
+    <link rel="stylesheet" href="../../css/admin.css">
 </head>
-<body>
 
+<body>
 <header>
     <div style="background-color:#000080; color:#FFFFFF;">
         <p align='center' style="font-size:50px;"></p>
     </div>
 </header>
 
-<div align="center">
-    <div style="width:1000px; height:500px; border: solid 2px #000080;" align="left">
-        <div style="background-color:#000080; color:#FFFFFF; padding:3px;">
-            <p style="font-size:x-large; margin: 10px;">User Registration</p>
-            <a href="index.php" align='left'><button>Back</button></a>
-        </div>
+<div align="center" class="nav">
+    <div class="navbar">
+        <p style="font-size:x-large; margin: 10px;">User Registration</p>
+        <a href="index.php" align='left'>Back</a>
+    </div>
 
-<table width='999' align='center'>
-    <tr>
-        <th>
-            Registration
-        </th>
-    </tr>
+    <table width='999' align='center'>
+        <tr>
+            <th>
+                Registration
+            </th>
+        </tr>
 
-    <tr>
-        <td align = 'center'>
-            <form action="" method="post">
-                <table align='center'>
-                    <tr>
-                        <td>
-                            <label for="username">Username:</label>
-                        </td>
-                        <td>
-                            <input type="text" id="username" name="username" required>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label for="password">Password:</label>
-                        </td>
-                        <td>
-                            <input type="password" id="password" name="password" required>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label for="firstname">First Name:</label>
-                        </td>
-                        <td>
-                            <input type="text" id="firstname" name="firstname" required>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label for="lastname">Last Name:</label>
-                        </td>
-                        <td>
-                            <input type="text" id="lastname" name="lastname" required>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label for="gender">Gender:</label>
-                        </td>
-                        <td>
-                            <input type="text" id="gender" name="gender" required>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label for="usertype">Usertype:</label>
-                        </td>
-                        <td>
-                            <input type="radio" id="student" name="usertype" value="student">
-                            <label for="student">Student</label>
-                            <input type="radio" id="faculty" name="usertype" value="faculty">
-                            <label for="faculty">Faculty/Teacher</label>
-                            
-                        </td>
-                    </tr>
-                </table>
-                <br>
-                <input type="submit" value="Register User">
-            </form>
-        </td>
-    </tr>
-</table>
-
+        <tr>
+            <td align = 'center'>
+                <form action="" method="post">
+                    <table align='center'>
+                        <tr>
+                            <td>
+                                <label for="username">Username:</label>
+                            </td>
+                            <td>
+                                <input type="text" id="username" name="username" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="password">Password:</label>
+                            </td>
+                            <td>
+                                <input type="password" id="password" name="password" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="firstname">First Name:</label>
+                            </td>
+                            <td>
+                                <input type="text" id="firstname" name="firstname" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="lastname">Last Name:</label>
+                            </td>
+                            <td>
+                                <input type="text" id="lastname" name="lastname" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="gender">Gender:</label>
+                            </td>
+                            <td>
+                                <input type="text" id="gender" name="gender" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="usertype">Usertype:</label>
+                            </td>
+                            <td>
+                                <input type="radio" id="student" name="usertype" value="student">
+                                <label for="student">Student</label>
+                                <input type="radio" id="faculty" name="usertype" value="faculty">
+                                <label for="faculty">Faculty/Teacher</label>
+                                
+                            </td>
+                        </tr>
+                    </table>
+                    <br>
+                    <input type="submit" value="Register User">
+                </form>
+            </td>
+        </tr>
+    </table>
     </div>
 </div>
 

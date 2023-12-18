@@ -37,11 +37,7 @@ if (isset($_GET["edit_student"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Students</title>
-    <style>
-        html {
-            font-family: Arial, sans-serif;
-        }
-    </style>
+    <link rel="stylesheet" href="../css/admin.css">
 </head>
 <body>
 
@@ -51,17 +47,12 @@ if (isset($_GET["edit_student"])) {
     </div>
 </header>
 
-<div align="center">
-    <!-- Stuff inside the box header -->
-    <div style="width:1000px; height:1000px; border: solid 2px #000080;" align="left">
-    
-        <div style="background-color:#000080; color:#FFFFFF; padding:3px;">
-            <p style="font-size:x-large; margin: 10px;">Manage Students</p>
-            <a href="index.php" align = 'left'><button>Back</button></a>
-        </div>
-
-    
-    <table width='999'>
+<div align="center" class="nav">
+    <div class="navbar" align="left">    
+        <p style="font-size:x-large; margin: 10px;">Manage Students:</p>
+        <a href="index.php" align = 'left'>Back</a>
+    </div>    
+    <table>
         <tr height = '25'>
             <th> User ID </th>
             <th> Student ID </th>
@@ -86,8 +77,8 @@ if (isset($_GET["edit_student"])) {
             ?>
         </tr>
     </table>
-    </div>
 </div>
+
 
 <footer style="text-align: center;">
     &copy; 2023 All Rights Reserved

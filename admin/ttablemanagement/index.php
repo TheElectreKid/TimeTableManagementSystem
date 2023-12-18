@@ -28,9 +28,10 @@ if ($result->num_rows > 0) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Management</title>
+    <link rel="stylesheet" href="../../css/admin.css">
 </head>
 <body>
-<div align='right'></div>
+
 <header>
     <div style="background-color:#000080; color:#FFFFFF;">
         <p align='center' style="font-size:50px;"></p>
@@ -38,17 +39,16 @@ if ($result->num_rows > 0) {
     <style>html {font-family: Arial, sans-serif;}</style>
 </header>
 
-<div align="center">
-    <div style="width:1000px; height:1000px; border: solid 2px #000080;" align="left">
-        <div style="background-color:#000080; color:#FFFFFF; padding:3px;">
-            <p style="font-size:x-large; margin: 10px;">Timetable Management</p>
-            <a href="../index.php"><button> Back to Main Dashboard </button></a>
-            <a href="createtimetable.php"><button> Create New Timetable </button></a>
-        </div>
-
+<div align="center" class="nav">
+    <div class="navbar">
+        <p style="font-size:x-large; margin: 10px;">Timetable Management: </p>
+        <a href="../index.php">Back to Main Dashboard</a>
+        <a href="createtimetable.php">Create New Timetable</a>
+    </div>
+    <div>
     <!-- Display timetables -->
     <?php if (!empty($timetables)) : ?>
-        <table align='center' width='1000'>
+        <table align='center'>
             <thead>
                 <tr>
                     <th>Timetable ID</th>
@@ -78,6 +78,8 @@ if ($result->num_rows > 0) {
     <?php endif; ?>
     </div>
 </div>
+
+
 
 <footer style="text-align: center;">
     &copy; 2023 All Rights Reserved

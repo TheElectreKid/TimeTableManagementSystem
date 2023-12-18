@@ -83,11 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Class</title>
-    <style>
-        html {
-            font-family: Arial, sans-serif;
-        }
-    </style>
+    <link rel="stylesheet" href="../css/admin.css">  
 </head>
 <body>
 <header>
@@ -96,74 +92,72 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 </header>
 
-<div align="center">
-    <div style="width:1000px; height:500px; border: solid 2px #000080;" align="left">
-        <div style="background-color:#000080; color:#FFFFFF; padding:3px;">
-            <p style="font-size:x-large; margin: 10px;">Edit Class</p>
-            <a href="manageclass.php" align='left'><button>Back</button></a>
-        </div>
+<div align="center" class="nav">
+    <div class="navbar">
+        <p style="font-size:x-large; margin: 10px;">Edit Class</p>
+        <a href="manageclass.php" align='left'>Back</a>
+    </div>
 
-        <!-- Form for editing class details -->
-        <form method="POST">
-            <table width='999' align='center'>
-                <tr>
-                    <td>
-                        Class Name: <input type="text" name="classname" value="<?php echo $classname; ?>">
-                    </td>
-                    <td>
-                        Teacher:
-                        <select name="teacher_id">
-                            <?php
-                            //Display for the interface
-                            foreach ($teachers as $teacher) {
-                                $selected = ($teacher['teacher_id'] == $teacherid) ? 'selected' : '';
-                                echo "<option value='" . $teacher['teacher_id'] . "' $selected>" . $teacher['firstname'] . "</option>";
-                            }
-                            ?>
-                        </select>
-                    </td>
-                    <td>
-                        Subject:
-                        <select name="subject_id">
-                            <?php
-                            foreach ($subjects as $subject) {
-                                $selected = ($subject['subject_id'] == $subjectid) ? 'selected' : '';
-                                echo "<option value='" . $subject['subject_id'] . "' $selected>" . $subject['subject_name'] . "</option>";
-                            }
-                            ?>
-                        </select>
-                    </td>
-                    <td>
-                        Class Time:
-                        <select name="time_id">
-                            <?php
-                            foreach ($classtimes as $classtime) {
-                                $selected = ($classtime['time_id'] == $timeid) ? 'selected' : '';
-                                
-                                // Format the time in 12-hour format
-                                $start_time = date('h:i A', strtotime($classtime['classtime']));
-                                $end_time = date('h:i A', strtotime($classtime['endtime']));
+    <form method="POST" style="margin-top: 14px;">
+        <table align='center'>
+            <tr>
+                <td>
+                    Class Name: <input type="text" name="classname" value="<?php echo $classname; ?>">
+                </td>
+                <td>
+                    Teacher:
+                    <select name="teacher_id">
+                        <?php
+                        //Display for the interface
+                        foreach ($teachers as $teacher) {
+                            $selected = ($teacher['teacher_id'] == $teacherid) ? 'selected' : '';
+                            echo "<option value='" . $teacher['teacher_id'] . "' $selected>" . $teacher['firstname'] . "</option>";
+                        }
+                        ?>
+                    </select>
+                </td>
+                <td>
+                    Subject:
+                    <select name="subject_id">
+                        <?php
+                        foreach ($subjects as $subject) {
+                            $selected = ($subject['subject_id'] == $subjectid) ? 'selected' : '';
+                            echo "<option value='" . $subject['subject_id'] . "' $selected>" . $subject['subject_name'] . "</option>";
+                        }
+                        ?>
+                    </select>
+                </td>
+                <td>
+                    Class Time:
+                    <select name="time_id">
+                        <?php
+                        foreach ($classtimes as $classtime) {
+                            $selected = ($classtime['time_id'] == $timeid) ? 'selected' : '';
+                            
+                            // Format the time in 12-hour format
+                            $start_time = date('h:i A', strtotime($classtime['classtime']));
+                            $end_time = date('h:i A', strtotime($classtime['endtime']));
 
-                                echo "<option value='" . $classtime['time_id'] . "' $selected>" . $start_time . " - " . $end_time . "</option>";
-                            }
-                            ?>
-                        </select>
-                    </td>
+                            echo "<option value='" . $classtime['time_id'] . "' $selected>" . $start_time . " - " . $end_time . "</option>";
+                        }
+                        ?>
+                    </select>
+                    <button type="submit">Apply</button>
+                </td>
 
 
-            <div style="background-color:#000080; color:#FFFFFF; padding:3px;">
-                <button type="submit">Apply</button>
-            </div>
-        </form>
             
-        <td>
-            <form method="POST" action="deleteclass.php">
-                <input type="hidden" name="class_id" value="<?php echo $classid; ?>">
-                <button type="submit" name="delete_class">Delete</button>
-            </form>
-        </td>
-            </table>
-
+        
+    </form>
+            
+    <td>
+        <form method="POST" action="deleteclass.php">
+            <input type="hidden" name="class_id" value="<?php echo $classid; ?>">
+            <button type="submit" name="delete_class">Delete</button>
+        </form>
+    </td>
+    
+        </table>
     </div>
 </div>
 

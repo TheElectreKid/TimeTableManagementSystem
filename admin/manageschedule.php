@@ -61,63 +61,57 @@ if (isset($_GET["delete_schedule"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Schedules</title>
-    <style>
-        html {
-            font-family: Arial, sans-serif;
-        }
-    </style>
+    <link rel="stylesheet" href="../css/admin.css">
 </head>
-
 <body>
-    <header>
-        <div style="background-color:#000080; color:#FFFFFF;">
-            <p align='center' style="font-size:50px;"></p>
-        </div>
-    </header>
 
-    <div align="center">
-        <div style="width:1000px; height:1000px; border: solid 2px #000080;" align="left">
-            <div style="background-color:#000080; color:#FFFFFF; padding:3px;">
-                <p style="font-size:x-large; margin: 10px;">Manage Schedules</p>
-                <a href="index.php" align='left'><button>Back</button></a>
-                <form action="" method="post">
-                    <label>Class Time: </label>
-                    <input type="time" id="classtime" name="classtime" required>
-                    <label>End Time: </label>
-                    <input type="time" id="endtime" name="endtime" required>
-                    <input type="submit" value="Add">
-                </form>
-            </div>
-
-            <table width='999' align='center'>
-                <tr height='25'>
-                    <th>Time ID</th>
-                    <th align='left'>Class Time</th>
-                    <th align='left'>End Time</th>
-                    <th>Action</th>
-                </tr>
-                <tr>
-                    <?php
-                    foreach ($schedules as $schedule) {
-                        echo "<tr>";
-                        echo "<td height='25' width='60' align='center' style='border: solid 1px #000080;'>{$schedule['time_id']}</td>";
-                        // Format the time to 12-hour format
-                        $formattedClassTime = date("h:i A", strtotime($schedule['classtime']));
-                        $formattedEndTime = date("h:i A", strtotime($schedule['endtime']));
-                        echo "<td style='border: solid 1px #000080;'>{$formattedClassTime}</td>";
-                        echo "<td style='border: solid 1px #000080;'>{$formattedEndTime}</td>";
-                        echo "<td align='center' style='border: solid 1px #000080;' width='100'><button><a href='?delete_schedule={$schedule['time_id']}'>Delete</a></button></td>";
-                        echo "</tr>";
-                    }
-                    ?>
-                </tr>
-            </table>
-        </div>
+<header>
+    <div style="background-color:#000080; color:#FFFFFF;">
+        <p align='center' style="font-size:50px;"></p>
     </div>
+</header>
 
-    <footer style="text-align: center;">
-        &copy; 2023 All Rights Reserved
-    </footer>
+<div align="center" class="nav">
+    <div class="navbar">
+        <p style="font-size:x-large; margin: 10px;">Manage Schedules:</p>
+        <a href="index.php" align='left'>Back</a>
+        <form action="" method="post" style="margin-top: 14px; padding-left: 7px;">
+            <label>Class Time: </label>
+            <input type="time" id="classtime" name="classtime" required>
+            <label>End Time: </label>
+            <input type="time" id="endtime" name="endtime" required>
+            <input type="submit" value="Add">
+        </form>
+    </div>
+        <table align='center'>
+            <tr height='25'>
+                <th>Time ID</th>
+                <th align='left'>Class Time</th>
+                <th align='left'>End Time</th>
+                <th>Action</th>
+            </tr>
+            <tr>
+                <?php
+                foreach ($schedules as $schedule) {
+                    echo "<tr>";
+                    echo "<td height='25' width='60' align='center' style='border: solid 1px #000080;'>{$schedule['time_id']}</td>";
+                    // Format the time to 12-hour format
+                    $formattedClassTime = date("h:i A", strtotime($schedule['classtime']));
+                    $formattedEndTime = date("h:i A", strtotime($schedule['endtime']));
+                    echo "<td style='border: solid 1px #000080;'>{$formattedClassTime}</td>";
+                    echo "<td style='border: solid 1px #000080;'>{$formattedEndTime}</td>";
+                    echo "<td align='center' style='border: solid 1px #000080;' width='100'><button><a href='?delete_schedule={$schedule['time_id']}'>Delete</a></button></td>";
+                    echo "</tr>";
+                }
+                ?>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<footer style="text-align: center;">
+    &copy; 2023 All Rights Reserved
+</footer>
 </body>
 
 </html>

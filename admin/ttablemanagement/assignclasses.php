@@ -48,11 +48,7 @@ if (isset($_GET["add_class"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <style>
-        html {
-            font-family: Arial, sans-serif;
-        }
-    </style>
+    <link rel="stylesheet" href="../../css/admin.css">
 </head>
 <body>
 
@@ -68,12 +64,11 @@ if (isset($_GET["add_class"])) {
     </div>
 </header>
 
-<div align="center">
-    <div style="width:1000px; height:1000px; border: solid 2px #000080;" align="left">
-        <div style="background-color:#000080; color:#FFFFFF; padding:3px;">
-            <p style="font-size:x-large; margin: 10px;">Add Classes </p>
-            <button onclick="goBack()">Back</button>
-        </div>
+<div align="center" class="nav">
+    <div class="navbar">
+        <p style="font-size:x-large; margin: 10px;">Add Classes: </p>
+        <a onclick="goBack()">Back</a>
+    </div>
         <!-- Display classes in a table -->
         <table align='center'>
             <tr>

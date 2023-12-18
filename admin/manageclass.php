@@ -39,11 +39,7 @@ if (isset($_GET["edit_class"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Classes</title>
-    <style>
-        html {
-            font-family: Arial, sans-serif;
-        }
-    </style>
+    <link rel="stylesheet" href="../css/admin.css">
 </head>
 <body>
 
@@ -53,45 +49,45 @@ if (isset($_GET["edit_class"])) {
     </div>
 </header>
 
-<div align="center">
-    <!-- Stuff inside the box header -->
-    <div style="width:1000px; height:1000px; border: solid 2px #000080;" align="left">
-    
-        <div style="background-color:#000080; color:#FFFFFF; padding:3px;">
-            <p style="font-size:x-large; margin: 10px;">Manage Classes</p>
-            <a href="index.php" align='left'><button>Back</button></a>
-            <a href="createclass.php"><button>Create Class</button></a>
-        </div>
-
-        <table width='999' align='center'>
-            <tr height=''>
-                <th> Class ID </th>
-                <th> Class Name </th>
-                <th> Teacher </th>
-                <th> Class Time </th>
-                <th> End Time </th>
-                <th> Subject </th>
-                <th> Action </th>
-            </tr>
-
-            <tr>
-                <?php
-                //Display
-                foreach ($classes as $class) {
-                    echo "<tr>";
-                    echo "<td height='25' width='100' align='center' style='border: solid 1px #000080;'>{$class['class_id']}</td>";
-                    echo "<td style='border: solid 1px #000080;' width='200' align='center'>{$class['classname']}</td>";
-                    echo "<td style='border: solid 1px #000080;' width='200' align='center'>{$class['teacher_name']}</td>";
-                    echo "<td style='border: solid 1px #000080;' width='100' align='center'>" . date("h:i A", strtotime($class['class_time'])) . "</td>";
-                    echo "<td style='border: solid 1px #000080;' width='100' align='center'>" . date("h:i A", strtotime($class['end_time'])) . "</td>";
-                    echo "<td style='border: solid 1px #000080;' width='200' align='center'>{$class['subject_name']}</td>";
-                    echo "<td align='center' style = 'border: solid 1px #000080;' width = '100'><a href='?edit_class={$class['class_id']}'>Edit</a></td>";
-                    echo "</tr>";
-                }
-                ?>
-            </tr>
-        </table>
+<div align="center" class="nav">
+    <div class="navbar">  
+        <p style="font-size:x-large; margin: 10px;">Manage Classes: </p>
+        <a href="index.php" align='left'>Back</a>
+        <a href="createclass.php">Create Class</a>
     </div>
+    <table align='center'>
+        <tr height='25'>
+            <th> Class ID </th>
+            <th> Class Name </th>
+            <th> Teacher </th>
+            <th> Class Time </th>
+            <th> End Time </th>
+            <th> Subject </th>
+            <th> Action </th>
+        </tr>
+
+        <tr>
+            <?php
+            //Display
+            foreach ($classes as $class) {
+                echo "<tr>";
+                echo "<td height='25' width='100' align='center' style='border: solid 1px #000080;'>{$class['class_id']}</td>";
+                echo "<td style='border: solid 1px #000080;' width='200' align='center'>{$class['classname']}</td>";
+                echo "<td style='border: solid 1px #000080;' width='200' align='center'>{$class['teacher_name']}</td>";
+                echo "<td style='border: solid 1px #000080;' width='100' align='center'>" . date("h:i A", strtotime($class['class_time'])) . "</td>";
+                echo "<td style='border: solid 1px #000080;' width='100' align='center'>" . date("h:i A", strtotime($class['end_time'])) . "</td>";
+                echo "<td style='border: solid 1px #000080;' width='200' align='center'>{$class['subject_name']}</td>";
+                echo "<td align='center' style = 'border: solid 1px #000080;' width = '100'><a href='?edit_class={$class['class_id']}'>Edit</a></td>";
+                echo "</tr>";
+            }
+            ?>
+        </tr>
+    </table>
 </div>
+
+<footer style="text-align: center;">
+    &copy; 2023 All Rights Reserved
+</footer>
+
 </body>
 </html>

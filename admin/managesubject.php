@@ -61,60 +61,51 @@ if (isset($_GET["delete_subject"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manage Subjects</title>
-    <style>
-        html {
-            font-family: Arial, sans-serif;
-        }
-    </style>
+    <link rel="stylesheet" href="../css/admin.css">
 </head>
 <body>
+
 <header>
     <div style="background-color:#000080; color:#FFFFFF;">
         <p align='center' style="font-size:50px;"></p>
     </div>
 </header>
 
-<div align="center">
-    <!-- Stuff inside the box header -->
-    <div style="width:1000px; height:1000px; border: solid 2px #000080;" align="left">
-    
-        <div style="background-color:#000080; color:#FFFFFF; padding:3px;">
-            <p style="font-size:x-large; margin: 10px;">Manage Subjects</p>
-            <a href="index.php" align = 'left'><button>Back</button></a>
-            <form action="" method="post">
-                <label>Subject Name: </label>
-                <input type="text" id="subjectname" name="subjectname" required>
-                <label>Subject Code: </label>
-                <input type="text" id="subjectcode" name="subjectcode" required>
-                <input type="submit" value="Add">
-            </form>
-            
-        </div>
-
-        <!-- Table Display: Stuff actually inside the box -->
-        <table width='999' align='center'>
-            <tr height = '25'>
-                <th width = '100'>Subject ID</th>
-                <th width = '100'>Subject Code</th>
-                <th align = 'left'>Subject Name</th>
-                <th width = '100'>Action</th>
-            </tr>
-            <tr>
-            <?php
-                //Display
-                foreach ($subjects as $subject) {
-                    echo "<tr>";
-                    echo "<td height = '25' width = '100' align = 'center' style = 'border: solid 1px #000080;'>{$subject['subject_id']}</td>";
-                    echo "<td style = 'border: solid 1px #000080;' width = '100' align = 'center'> {$subject['subject_code']}</td>";
-                    echo "<td style = 'border: solid 1px #000080;'>{$subject['subject_name']}</td>";
-                    echo "<td align = 'center' style = 'border: solid 1px #000080;' width = '100'><button><a href='?delete_subject={$subject['subject_id']}'>Delete</a></button></td>";
-                    echo "</tr>";
-                }
-            ?>
-            </tr>
-        </table>
-
+<div align="center" class="nav">
+    <div class="navbar">
+        <p style="font-size:x-large; margin: 10px;">Manage Subjects: </p>
+        <a href="index.php" align = 'left'>Back</a>
+        <form action="" method="post" style="margin-top: 14px; padding-left: 7px;">
+            <label>Subject Name: </label>
+            <input type="text" id="subjectname" name="subjectname" required>
+            <label>Subject Code: </label>
+            <input type="text" id="subjectcode" name="subjectcode" required>
+            <input type="submit" value="Add">
+        </form>
     </div>
+
+    <table align='center'>
+        <tr height = '25'>
+            <th width = '100'>Subject ID</th>
+            <th width = '100'>Subject Code</th>
+            <th align = 'left'>Subject Name</th>
+            <th width = '100'>Action</th>
+        </tr>
+        <tr>
+        <?php
+            //Display
+            foreach ($subjects as $subject) {
+                echo "<tr>";
+                echo "<td height = '25' width = '100' align = 'center' style = 'border: solid 1px #000080;'>{$subject['subject_id']}</td>";
+                echo "<td style = 'border: solid 1px #000080;' width = '100' align = 'center'> {$subject['subject_code']}</td>";
+                echo "<td style = 'border: solid 1px #000080;'>{$subject['subject_name']}</td>";
+                echo "<td align = 'center' style = 'border: solid 1px #000080;' width = '100'><a href='?delete_subject={$subject['subject_id']}'>Delete</a></button></td>";
+                echo "</tr>";
+            }
+        ?>
+        </tr>
+    </table>
+    
 </div>
 
 <footer style="text-align: center;">
